@@ -1,0 +1,213 @@
+@charset 'utf-8';
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 500px;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.logo {
+  position: absolute;
+  left: 6.99%;
+  right: 68.78%;
+  top: 7.8%;
+  bottom: 90.24%;
+}
+.menu a:nth-of-type(1) {
+  float: right;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 292px;
+  top: 59px;
+}
+.menu a:nth-of-type(2) {
+  float: right;
+  position: absolute;
+  width: 24px;
+  height: 27px;
+  left: 332px;
+  top: 59px;
+}
+.profile_img {
+  position: absolute;
+  width: 214px;
+  height: 214px;
+  left: 81px;
+  top: 155px;
+  text-align: center;
+}
+.nickname {
+  color: white;
+  position: absolute;
+  width: 146px;
+  height: 24px;
+  left: 26px;
+  top: 103px;
+
+  font-family: Pretendard;
+}
+.monthly {
+  position: relative;
+  width: 343px;
+  height: 144px;
+  left: 16px;
+  top: 397px;
+
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.08);
+  border-radius: 13px;
+}
+.month {
+  position: absolute;
+  width: 39px;
+  height: 23px;
+  left: 32px;
+  top: 10px;
+
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+.history {
+  position: absolute;
+  width: 51px;
+  height: 30px;
+  left: 280px;
+  top: 10px;
+
+  background: #555b68;
+  border-radius: 9px;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 0px;
+  /* identical to box height, or 0% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+.income {
+  position: absolute;
+  width: 227px;
+  height: 23.13px;
+  left: 32px;
+  top: 60px;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+  /* light grey */
+
+  color: #b4b6b8;
+}
+.expend {
+  position: absolute;
+  width: 237px;
+  height: 22.66px;
+  left: 32px;
+  top: 100px;
+
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+  /* light grey */
+
+  color: #b4b6b8;
+}
+
+/* etc */
+.etc {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: absolute;
+  width: 342px;
+  height: 95px;
+  left: 16px;
+  top: 563px;
+  overflow-x: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.etc::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/*etc의 상자, 글씨, 버튼*/
+div.box {
+  position: relative;
+  width: 156px;
+  height: 95px;
+  left: 0px;
+  top: 0px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 5px;
+
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.08);
+  border-radius: 13px;
+}
+nav.box_text {
+  position: absolute;
+  width: 59px;
+  height: 42px;
+  left: 15px;
+  top: 13px;
+
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 21px;
+  /* or 140% */
+
+  color: #ffffff;
+}
+.btn {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 105px;
+  top: 0px;
+}
+.floating {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  left: 305px;
+  top: 610px;
+}

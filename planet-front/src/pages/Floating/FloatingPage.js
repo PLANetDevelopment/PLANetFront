@@ -23,20 +23,28 @@ class TopNav extends Component {
   }
 }
 
+//Content
+class Content extends Component {
+  render(){
+    return(
+      <article>
+        <p>{this.props.title}</p>
+        <h1>{this.props.desc}</h1>
+      </article>
+    );
+  }
+}
+
 function FloatingPage() {
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
 
-      언제 받으셨나요?
+      <Content title="언제 받으셨나요?" desc="22.01.24"></Content>
+      <Content title="얼마 받으셨나요?" desc="0원"></Content>
 
-      <h2>21.10.30</h2>
-
-      얼마 받으셨나요?
-
-      <h2>0원</h2>
     </div>
-);
+  );
 }
 
 export default FloatingPage;

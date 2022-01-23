@@ -17,6 +17,22 @@
   font-family: Pretendard;
 }
 
+.container h1, h2, h3 {
+  font-family: Pretendard;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container p {
+  font-family: Pretendard;
+  color: #B4B6B8;
+  font-size: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
 .backBtn {
     position: relative;
     width: 100%;

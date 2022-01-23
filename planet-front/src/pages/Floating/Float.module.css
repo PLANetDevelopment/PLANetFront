@@ -13,24 +13,32 @@
   height: 800px;
   width: 375px;
   color: #ffffff;
-  background-color: #141B27;
+  background-color: #395688;
   font-family: Pretendard;
 }
 
-nav {
-    overflow: hidden;
-}
-
-nav > div {
-    text-align: center;
+.backBtn {
+    position: relative;
+    width: 100%;
+    margin-left: 25px;
+    padding-top: 30px;
+    padding-bottom: 20px;
     float: left;
-    width: 25%;
 }
 
-.btn {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 105px;
-  top: 0px;
+.navBar {
+    position: absolute;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    top: 13px;
+    left: 70px;
+}
+
+.navBar > li {
+    margin: 8px;
+    width: 10%;
+    float: left;
+    text-align: center;
+    list-style: none;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import homeStyle from './Home.module.css';
 import { FiSettings } from 'react-icons/fi';
 import { FiUser } from 'react-icons/fi';
@@ -9,6 +9,7 @@ import logo from './img/PLANet.png';
 import profile_img from './img/Profiles.png';
 import { IoIosArrowForward } from "react-icons/io";
 import { AiFillPlusCircle } from "react-icons/ai";
+import FloatingPage from '../Floating/FloatingPage';
 
 function Home({activeHome}) {
     return (
@@ -74,7 +75,7 @@ function Home({activeHome}) {
                 </div>
             </section>
             <section>
-                <Link to="/#" className={activeHome}>
+                <Link to="/FloatingPage" className={activeHome}>
                         <AiFillPlusCircle className={homeStyle.floating}></AiFillPlusCircle>
                 </Link>
             </section>

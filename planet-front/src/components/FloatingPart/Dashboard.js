@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import CustomSwitch from './CustomSwitch';
 
@@ -6,6 +7,7 @@ import CustomSwitch from './CustomSwitch';
 export default function Dashboard({navigation}){
     const onSelectSwitch = index => {
       //수입, 지출화면으로 이동
+      alert('Selected index: ' + index);
     };
   
     return (

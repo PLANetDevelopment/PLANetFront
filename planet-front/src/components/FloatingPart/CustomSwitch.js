@@ -18,6 +18,10 @@ const CustomSwitch = ({
       setSelectionMode(val);
       onSelectSwitch(val);
     };
+
+    const goExpensePage = () => {
+      navigation.navigate('FloatingExpensePage');
+    };
   
     return (
       <View>

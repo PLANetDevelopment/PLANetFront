@@ -20,7 +20,7 @@
 .container h1, h2, h3 {
   font-family: Pretendard;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 32px;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -28,33 +28,7 @@
 .container p {
   font-family: Pretendard;
   color: #B4B6B8;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   margin: 30px;
-}
-
-.backBtn {
-    position: relative;
-    width: 100%;
-    margin-left: 25px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    float: left;
-}
-
-.navBar {
-    position: absolute;
-    overflow: hidden;
-    margin: 0 auto;
-    text-align: center;
-    top: 13px;
-    left: 70px;
-}
-
-.navBar > li {
-    margin: 8px;
-    width: 10%;
-    float: left;
-    text-align: center;
-    list-style: none;
 }

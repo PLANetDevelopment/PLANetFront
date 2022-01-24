@@ -1,27 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import IncomeStyle from './Float.module.css';
-import { FaChevronLeft } from 'react-icons/fa';
-import { AiOutlineMinus } from 'react-icons/ai';
-
-//수입 상단바 
-class TopNav extends Component {
-  render() {
-    return (
-      <div className={IncomeStyle.backBtn}>
-          <Link to="/#">
-            <FaChevronLeft className="icon" size="20" color="white" />
-          </Link>
-          <div className={IncomeStyle.navBar}>
-          <li><AiOutlineMinus className="icon" size="40" color="white" /></li>
-          <li><AiOutlineMinus className="icon" size="40" color="#566479" /></li>
-          <li><AiOutlineMinus className="icon" size="40" color="#566479" /></li>
-          <li><AiOutlineMinus className="icon" size="40" color="#566479" /></li>
-          </div>
-      </div>
-    );
-  }
-}
+import Clock from '../../components/FloatingPart/Clock';
+import TopNav from '../../components/FloatingPart/TopNav';
+import Dashboard from '../../components/FloatingPart/Dashboard';
 
 //Content
 class Content extends Component {
@@ -39,6 +20,7 @@ function FloatingPage() {
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
+      <Dashboard></Dashboard>
 
       <Content title="언제 받으셨나요?" desc="22.01.24"></Content>
       <Content title="얼마 받으셨나요?" desc="0원"></Content>

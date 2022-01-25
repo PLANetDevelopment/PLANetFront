@@ -8,6 +8,7 @@ import Diary from "./pages/Diary/Diary";
 import News from "./pages/News/News";
 import FloatingPage from "./pages/Floating/FloatingPage";
 import FloatingExpensePage from "./pages/Floating/FloatingExpensePage";
+import FloatingDate from "./pages/Floating/FloatingDate";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/news" element={<News />}></Route>
       <Route path="/floatingpage" element={<FloatingPage />}></Route>
       <Route path="/floatingExpensePage" element={<FloatingExpensePage />}></Route>
+      <Route path="/floatingDate" element={<FloatingDate />}></Route>
     </Routes>
   );
 }

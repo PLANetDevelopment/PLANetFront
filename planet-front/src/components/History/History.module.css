@@ -1,0 +1,14 @@
+@charset 'utf-8';
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.goBackBtn {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}

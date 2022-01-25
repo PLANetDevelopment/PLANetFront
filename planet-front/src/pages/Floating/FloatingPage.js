@@ -25,7 +25,7 @@ function FloatingPage() {
 
       <Content title="언제 받으셨나요?"></Content>
 
-      <Link to="/FloatingDate">
+      <Link to="/FloatingDate" style={{ textDecoration: 'none' }}>
         <h1><IncomeDate></IncomeDate></h1>
       </Link>
 

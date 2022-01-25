@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+/*플로팅 첫 번째 수입 화면*/
 .container {
   display: flex;
   flex-direction: column;
@@ -37,7 +38,43 @@
 .container p {
   font-family: Pretendard;
   color: #B4B6B8;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   margin: 30px;
+}
+
+/*플로팅 수입 날짜 입력 화면*/
+.container_date {
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  width: 375px;
+  color: #ffffff;
+  background-color: #395688;
+  font-family: Pretendard;
+}
+
+.container_date h1 {
+  font-family: Pretendard;
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  margin: 20px;
+}
+
+.container_date h2, h3 {
+  font-family: Pretendard;
+  color: #F5F5F5;
+  opacity: 10%;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container_date p {
+  font-family: Pretendard;
+  color: #B4B6B8;
+  font-size: 16px;
+  text-align: center;
+  margin: 50px;
 }

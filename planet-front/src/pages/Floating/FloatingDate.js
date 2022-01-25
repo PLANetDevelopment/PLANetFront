@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import IncomeStyle from './Float.module.css';
-import { Link } from 'react-router-dom';
 import TopNav from '../../components/FloatingPart/TopNav';
 import Dashboard from '../../components/FloatingPart/Dashboard';
 import IncomeDate from '../../components/FloatingPart/IncomeDate';
@@ -19,7 +18,7 @@ class Content extends Component {
 
 function FloatingDate() {
   return (
-    <div className={IncomeStyle.container}>
+    <div className={IncomeStyle.container_date}>
       <TopNav></TopNav>
 
       <Dashboard></Dashboard>

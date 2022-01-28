@@ -11,7 +11,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: 812px;
   width: 375px;
   color: #ffffff;
   background-color: #395688;
@@ -40,14 +40,14 @@
   color: #B4B6B8;
   font-size: 16px;
   text-align: center;
-  margin: 30px;
+  margin: 40px;
 }
 
 /*플로팅 수입 날짜 입력 화면*/
 .container_date {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: 812px;
   width: 375px;
   color: #ffffff;
   background-color: #395688;
@@ -76,5 +76,5 @@
   color: #B4B6B8;
   font-size: 16px;
   text-align: center;
-  margin: 50px;
+  margin: 70px;
 }

@@ -4,6 +4,7 @@ import TopNav from '../../components/FloatingPart/TopNav';
 import Dashboard from '../../components/FloatingPart/Dashboard';
 import IncomeDate from '../../components/FloatingPart/IncomeDate';
 import BottomBtn from '../../components/FloatingPart/BottomBtn';
+import InputDate from '../../components/FloatingPart/InputDate';
 
 //Content
 class Content extends Component {
@@ -25,7 +26,8 @@ function FloatingDate() {
       <Dashboard></Dashboard>
 
       <Content title="언제 받으셨나요?"></Content>
-      <h1><IncomeDate></IncomeDate></h1>
+
+      <InputDate></InputDate>
 
       <BottomBtn></BottomBtn>
 

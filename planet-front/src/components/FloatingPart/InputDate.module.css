@@ -1,0 +1,17 @@
+@charset 'utf-8';
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+.inputData {
+    display: flex;
+    margin: 0 auto;
+}
+
+.inputData input {
+    font-family: Pretendard;
+    border: 0 solid black;
+    width: 153px;
+    height: 40px;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+}

@@ -18,7 +18,9 @@ class Content extends Component {
   }
 }
 
-function FloatingPage() {
+
+//받아온 데이터 값 넣어야 함(수정 필요)
+function FloatingPrice() {
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
@@ -33,8 +35,13 @@ function FloatingPage() {
       <Content title="얼마 받으셨나요?"></Content>
       <InputPrice></InputPrice>
 
+      <div className={IncomeStyle.bottomBtn2}>
+        <button className={IncomeStyle.bottomBtnDisabled}>뒤로</button>
+        <button className={IncomeStyle.bottomBtnDisabled}>다음</button>
+      </div>
+
     </div>
   );
 }
 
-export default FloatingPage;
+export default FloatingPrice;

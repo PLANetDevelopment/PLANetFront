@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import IncomeStyle from './Float.module.css';
 import TopNav from '../../components/FloatingPart/TopNav';
 import Dashboard from '../../components/FloatingPart/Dashboard';
-import IncomeDate from '../../components/FloatingPart/IncomeDate';
-import BottomBtn from '../../components/FloatingPart/BottomBtn';
 import InputDate from '../../components/FloatingPart/InputDate';
 
 //Content
@@ -29,7 +28,12 @@ function FloatingDate() {
 
       <InputDate></InputDate>
 
-      <BottomBtn></BottomBtn>
+      <div className={IncomeStyle.bottomBtn}>
+        <button className={IncomeStyle.bottomBtnDisabled}>뒤로</button>
+        <Link to="/FloatingPrice">
+          <button className={IncomeStyle.bottomBtnActive}>다음</button>
+        </Link>
+      </div>
 
     </div>
   );

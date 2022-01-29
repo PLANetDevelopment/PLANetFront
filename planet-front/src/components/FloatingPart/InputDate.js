@@ -22,6 +22,18 @@ class InputDate extends Component {
         })
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        //상태값을 onCreate를 통해 부모에게 전달
+        this.props.onCreate(this.state);
+
+        this.setState({
+            //현재 날짜 데이터로 초기화
+            date: this.todayTime().slice(2, 10)
+        })
+    }
+
     render() {
         return (
            <div className={InputDateStyle.inputData}>

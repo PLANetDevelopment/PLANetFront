@@ -7,7 +7,7 @@ import CustomSwitch from './CustomSwitch';
 export default function Dashboard({navigation}){
     const onSelectSwitch = index => {
       //수입, 지출화면으로 이동
-      alert('Selected index: ' + index);
+      alert(index + '(을)를 선택했습니다.');
     };
   
     return (

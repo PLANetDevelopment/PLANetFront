@@ -18,7 +18,7 @@ class Content extends Component {
   }
 }
 
-function FloatingPage() {
+function FloatingPage1() {
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
@@ -37,4 +37,4 @@ function FloatingPage() {
   );
 }
 
-export default FloatingPage;
+export default FloatingPage1;

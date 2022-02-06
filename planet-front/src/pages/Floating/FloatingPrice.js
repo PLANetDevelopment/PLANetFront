@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import TopNav from '../../components/FloatingPart/TopNav';
 import Dashboard from '../../components/FloatingPart/Dashboard';
 import IncomeDate from '../../components/FloatingPart/IncomeDate';
-import InputPrice from '../../components/FloatingPart/InputPrice';
 import InputDateStyle from '../../components/FloatingPart/InputDate.module.css';
+import FloatingDate from './FloatingDate';
 
 //Content
 class Content extends Component {
@@ -19,9 +19,6 @@ class Content extends Component {
   }
 }
 
-//todo
-//데이터 값 넘기기, 가져오기
-//버튼 활성화/비활성화 
 class FloatingPrice extends Component {
   constructor() {
     super();
@@ -35,6 +32,11 @@ class FloatingPrice extends Component {
     this.setState({ price: e.target.value });
   };
 
+  //입력 받은 Date값 불러오기
+  handleCreate = data => {
+    console.log(data);
+  };
+
   render(){
   return (
     <div className={IncomeStyle.container}>
@@ -44,10 +46,11 @@ class FloatingPrice extends Component {
       <Content title="언제 받으셨나요?"></Content>
 
       <Link to="/FloatingDate" style={{ textDecoration: 'none' }}>
-        <h1><IncomeDate></IncomeDate></h1>
+        <h1>{this.props.value}</h1>
       </Link>
 
       <Content title="얼마 받으셨나요?"></Content>
+      
       <div className={InputDateStyle.inputPrice}>
       <input
         id="inputPrice"
@@ -59,7 +62,7 @@ class FloatingPrice extends Component {
 
       <div className={IncomeStyle.bottomBtn2}>
         <button className={IncomeStyle.bottomBtnDisabled}>뒤로</button>
-        <button className={IncomeStyle.bottombtnIf}
+        <button className={IncomeStyle.bottomBtnActive}
           disabled={this.state.price.length !== 0 ? false : true}>다음</button>
       </div>
 

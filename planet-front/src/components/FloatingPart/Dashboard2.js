@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import CustomSwitch from './CustomSwitch';
 
 //토글 스위치 Dashboard screen
-export default function Dashboard({navigation}){
+export default function Dashboard2({navigation}){
     const onSelectSwitch = index => {
     };
   
@@ -12,7 +12,7 @@ export default function Dashboard({navigation}){
       <View style={{alignItems: 'center'}}>
         <View style={{alignItems: 'center', marginBottom: 60}}>
           <CustomSwitch
-            selectionMode={1}
+            selectionMode={2}
             roundCorner={true}
             option1={'수입'}
             option2={'지출'}

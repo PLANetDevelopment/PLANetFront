@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IncomeStyle from './Float.module.css';
 import TopNav from '../../components/FloatingPart/TopNav';
-import Dashboard from '../../components/FloatingPart/Dashboard';
+import Dashboard2 from '../../components/FloatingPart/Dashboard2';
 
 //Content
 class Content extends Component {
@@ -15,11 +15,11 @@ class Content extends Component {
   }
 }
 
-function FloatingExpensePage() {
+function FloatingPage2() {
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
-      <Dashboard></Dashboard>
+      <Dashboard2></Dashboard2>
 
       <Content title="언제 쓰셨나요?" desc="22.01.24"></Content>
       <Content title="얼마 쓰셨나요?" desc="0원"></Content>
@@ -28,4 +28,4 @@ function FloatingExpensePage() {
   );
 }
 
-export default FloatingExpensePage;
+export default FloatingPage2;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { useNavigate } from 'react-router-dom'
 
 //토글 스위치
 const CustomSwitch = ({
@@ -17,11 +18,14 @@ const CustomSwitch = ({
     const updatedSwitchData = val => {
       setSelectionMode(val);
       onSelectSwitch(val);
+      navigate('/FloatingPage' + val);
     };
 
-    const goExpensePage = () => {
-      navigation.navigate('FloatingExpensePage');
-    };
+    //const goExpensePage = () => {
+     // navigation.navigate('FloatingExpensePage');
+   // };
+
+    const navigate = useNavigate();
   
     return (
       <View>

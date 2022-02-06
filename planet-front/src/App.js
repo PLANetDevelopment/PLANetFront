@@ -9,7 +9,9 @@ import News from "./pages/News/News";
 import FloatingPage1 from "./pages/Floating/FloatingPage1";
 import FloatingPage2 from "./pages/Floating/FloatingPage2";
 import FloatingDate from "./pages/Floating/FloatingDate";
+import FloatingDate2 from "./pages/Floating/FloatingDate2";
 import FloatingPrice from "./pages/Floating/FloatingPrice";
+import FloatingPrice2 from "./pages/Floating/FloatingPrice2";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
       <Route path="/floatingpage1" element={<FloatingPage1 />}></Route>
       <Route path="/floatingPage2" element={<FloatingPage2 />}></Route>
       <Route path="/floatingDate" element={<FloatingDate />}></Route>
+      <Route path="/floatingDate2" element={<FloatingDate2 />}></Route>
       <Route path="/floatingPrice" element={<FloatingPrice />}></Route>
+      <Route path="/floatingPrice2" element={<FloatingPrice2 />}></Route>
     </Routes>
   );
 }

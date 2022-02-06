@@ -10,6 +10,7 @@
     float: left;
 }
 
+/* 수입 페이지 상태 bar */
 .navBar {
     position: absolute;
     overflow: hidden;
@@ -20,8 +21,26 @@
 }
 
 .navBar > li {
-    margin: 8px;
+    margin: 7px;
     width: 10%;
+    float: left;
+    text-align: center;
+    list-style: none;
+}
+
+/* 지출 페이지 상태 bar */
+.navBar2 {
+    position: absolute;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    top: 13px;
+    left: 65px;
+}
+
+.navBar2 > li {
+    margin: 7px;
+    width: 8%;
     float: left;
     text-align: center;
     list-style: none;

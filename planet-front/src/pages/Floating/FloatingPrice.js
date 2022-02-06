@@ -5,6 +5,7 @@ import TopNav from '../../components/FloatingPart/TopNav';
 import Dashboard from '../../components/FloatingPart/Dashboard';
 import IncomeDate from '../../components/FloatingPart/IncomeDate';
 import InputPrice from '../../components/FloatingPart/InputPrice';
+import InputDateStyle from '../../components/FloatingPart/InputDate.module.css';
 
 //Content
 class Content extends Component {
@@ -18,9 +19,23 @@ class Content extends Component {
   }
 }
 
+//todo
+//데이터 값 넘기기, 가져오기
+//버튼 활성화/비활성화 
+class FloatingPrice extends Component {
+  constructor() {
+    super();
+    this.state = {
+      price: "",
+      disabled: true,
+    };
+  }
 
-//받아온 데이터 값 넣어야 함(수정 필요)
-function FloatingPrice() {
+  handlePriceValue = (e) => {
+    this.setState({ price: e.target.value });
+  };
+
+  render(){
   return (
     <div className={IncomeStyle.container}>
       <TopNav></TopNav>
@@ -33,15 +48,24 @@ function FloatingPrice() {
       </Link>
 
       <Content title="얼마 받으셨나요?"></Content>
-      <InputPrice></InputPrice>
+      <div className={InputDateStyle.inputPrice}>
+      <input
+        id="inputPrice"
+        type="text"
+        placeholder='0원'
+        onChange={this.handlePriceValue}
+        />
+       </div>
 
       <div className={IncomeStyle.bottomBtn2}>
         <button className={IncomeStyle.bottomBtnDisabled}>뒤로</button>
-        <button className={IncomeStyle.bottomBtnDisabled}>다음</button>
+        <button className={IncomeStyle.bottombtnIf}
+          disabled={this.state.price.length !== 0 ? false : true}>다음</button>
       </div>
 
     </div>
   );
+}
 }
 
 export default FloatingPrice;

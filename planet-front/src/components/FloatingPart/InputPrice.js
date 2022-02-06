@@ -6,19 +6,21 @@ class InputPrice extends Component {
         price: ''
     }
     
-    handleChange = (e) => {
+    handleInput = (e) => {
         this.setState({
             price: e.target.value
         })
     }
 
     render() {
+        const inputP = this.state.price;
         return (
            <div className={InputDateStyle.inputPrice}>
             <input
+              name = "inputP"
+              value={inputP}
+              onChange={this.handleInput}
               placeholder='0원'
-              value={this.state.price}
-              onChange={this.handleChange}
             />
           </div>
         );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useCallback } from 'react';
 import IncomeStyle from './Float.module.css';
 import { Link } from 'react-router-dom';
 import TopNav from '../../components/FloatingPart/TopNav';
@@ -6,6 +6,7 @@ import Dashboard from '../../components/FloatingPart/Dashboard';
 import IncomeDate from '../../components/FloatingPart/IncomeDate';
 import InputDateStyle from '../../components/FloatingPart/InputDate.module.css';
 import FloatingDate from './FloatingDate';
+import TodoItemList from './TodoItemList';
 
 //Content
 class Content extends Component {
@@ -32,11 +33,6 @@ class FloatingPrice extends Component {
     this.setState({ price: e.target.value });
   };
 
-  //입력 받은 Date값 불러오기
-  handleCreate = data => {
-    console.log(data);
-  };
-
   render(){
   return (
     <div className={IncomeStyle.container}>
@@ -46,8 +42,11 @@ class FloatingPrice extends Component {
       <Content title="언제 받으셨나요?"></Content>
 
       <Link to="/FloatingDate" style={{ textDecoration: 'none' }}>
-        <h1>{this.props.value}</h1>
+        <h1>{FloatingDate.date}</h1>
       </Link>
+
+      <TodoItemList todoList={this.todoList}
+        setTodoList={this.setTodoList}></TodoItemList>
 
       <Content title="얼마 받으셨나요?"></Content>
       

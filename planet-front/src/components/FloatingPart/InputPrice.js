@@ -17,6 +17,7 @@ class InputPrice extends Component {
         return (
            <div className={InputDateStyle.inputPrice}>
             <input
+              disabled
               name = "inputP"
               value={inputP}
               onChange={this.handleInput}

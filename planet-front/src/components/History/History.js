@@ -8,7 +8,8 @@ function HistorySample() {
 
   return(
     <button className={HistoryStyle.goBackBtn} onClick={ () => {
-        navigate(-1);
+      //home화면으로
+        navigate('/#');
     } }>
       <FaChevronLeft className="icon" size="20" color="white" />
     </button>

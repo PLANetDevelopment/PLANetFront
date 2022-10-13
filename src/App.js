@@ -8,6 +8,8 @@ import Oauth from "./components/LoginPart/Oauth";
 import Profile from "./components/LoginPart/Profile";
 import CalendarPage from "./pages/Calendar/CalendarPage";
 
+import Check from "./pages/Home/Check";
+
 import Statistics from "./pages/Statistics/Statistics";
 import StatisticsView from "./pages/Statistics/StatisticsView";
 import StatisticsWays from "./pages/Statistics/StatisticsWays";
@@ -47,7 +49,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route exact path="/" element={Auth(Home, true)} />
+        {/* <Route exact path="/" element={Auth(Home, true)} /> */}
+        <Route exact path="/" element={Auth(Check, false)} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/oauth" element={<Oauth />} />
         <Route path="/profile" element={<Profile />} />

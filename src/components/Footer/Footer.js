@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RiHomeLine } from "react-icons/ri";
-import { FiCalendar, FiTrendingUp, FiGift } from "react-icons/fi";
+import { FiCalendar, FiSettings } from "react-icons/fi";
 import { HiOutlinePlus } from "react-icons/hi";
+import { AiOutlineLineChart } from "react-icons/ai";
 import styles from "../Footer/Footer.module.css";
 
 function Footer({ activeMenu }) {
@@ -28,18 +29,13 @@ function Footer({ activeMenu }) {
           캘린더
         </p>
       </Link>
-      <Link to="/FloatingPage">
-            <div className={styles.floating}>
-              <HiOutlinePlus className={styles.plus} />
-            </div>
-          </Link>
       <Link
         to="/statistics"
         replace={true}
         style={activeMenu === "statistics" ? { pointerEvents: "none" } : null}
         className={activeMenu === "statistics" ? styles.focused : styles.link}
       >
-        <FiTrendingUp className={styles.icon} />
+        <AiOutlineLineChart className={styles.icon} />
         <p className={activeMenu === "statistics" ? styles.text : styles.text2}>
           통계
         </p>
@@ -55,17 +51,17 @@ function Footer({ activeMenu }) {
           별별톡
         </p>
       </Link>
-      {/* <Link
-        to="/news"
+      <Link
+        to="/setting"
         replace={true}
-        style={activeMenu === "news" ? { pointerEvents: "none" } : null}
-        className={activeMenu === "news" ? styles.focused : styles.link}
+        style={activeMenu === "setting" ? { pointerEvents: "none" } : null}
+        className={activeMenu === "setting" ? styles.focused : styles.link}
       >
-        <FiGift className={styles.icon} />
-        <p className={activeMenu === "news" ? styles.text : styles.text2}>
-          소식
+        <FiSettings className={styles.icon} />
+        <p className={activeMenu === "setting" ? styles.text : styles.text2}>
+          설정
         </p>
-      </Link> */}
+      </Link>
     </div>
   );
 }

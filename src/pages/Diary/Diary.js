@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import SearchBar from "../../components/DiaryPart/SearchBar";
-import SearchHistory from "../../components/DiaryPart/SearchHistory";
 import WritingPage from "./WritingPage";
 import WritingList from "../../components/DiaryPart/WritingList";
 import Footer from "../../components/Footer/Footer";
 import DiaryStyle from "./diary.module.css";
-import { HiOutlinePencil } from "react-icons/hi";
-
-import SearchPost from "./SearchPost.js";
+import { ReactComponent as Pencil } from "../../components/svg/pencil.svg";
+import { FiSearch } from "react-icons/fi";
 
 const MAIN_DATA = [
   {
@@ -36,55 +34,17 @@ const MAIN_DATA = [
 ];
 
 const Diary = () => {
-  const [search, setSearch] = useState(""); //검색창 변화 감지
+  const navigate = useNavigate();
+
+  const clickSearchBar = () => {
+    navigate("/searchPost");
+  };
 
   /*버튼마다 컴포넌트 변경하기*/
   const [content, setContent] = useState("1");
 
-  const onChange = (e) => {
-    //value값 변경
-    setSearch(e.target.value);
-  };
-
   const btnValueSetting = (e) => {
     setContent(e.target.value);
-  };
-
-  //검색어 기능 설정
-  //string은 map을 사용 할 수 없기때문에 object 형태로 변환 시키기 위해 parsing을 해줘야함
-  const [keywords, setKeywords] = useState(
-    JSON.parse(localStorage.getItem("keywords") || "[]")
-  );
-
-  //keyword에 변화가 일어날때만 랜더링
-  useEffect(() => {
-    //array 타입을 string형태로 바꾸기 위해 json.stringfy를 사용한다.
-    localStorage.setItem("keywords", JSON.stringify(keywords));
-  }, [keywords]);
-
-  //state를 다루는 함수는 handle 보통 많이 붙인다.
-
-  //검색어 추가
-  const handleAddKeyword = (text) => {
-    console.log("text", text);
-    const newKeyword = {
-      id: Date.now(),
-      text: text,
-    };
-    setKeywords([newKeyword, ...keywords]);
-  };
-
-  //검색어 삭제
-  const handleRemoveKeyword = (id) => {
-    const nextKeyword = keywords.filter((thisKeyword) => {
-      return thisKeyword.id != id;
-    });
-    setKeywords(nextKeyword);
-  };
-
-  //검색어 전체 삭제
-  const handleClearKeywords = () => {
-    setKeywords([]);
   };
 
   //게시글 data 받아오기
@@ -118,7 +78,7 @@ const Diary = () => {
 
   const [comments, setComments] = useState([]);
 
-  //필요할 때만 가져오기
+  //필요할 때만 가져오기 (배열 안에 comments 넣으면 무한루프..)
   useEffect(() => {
     fetchData();
   }, []);
@@ -183,14 +143,16 @@ const Diary = () => {
         {!form && (
           <>
             <div>
-              <div>
-                <SearchBar onAddKeyword={handleAddKeyword}></SearchBar>
-                <SearchHistory
-                  keywords={keywords}
-                  onClearKeywords={handleClearKeywords}
-                  onRemoveKeyword={handleRemoveKeyword}
-                />
-                {/* <img className={DiaryStyle.profile} src="img/profile.png" alt="profile"></img> */}
+              {/* Todo : click 범위 제대로 설정하기 */}
+              <div onClick={clickSearchBar}>
+                <div className={DiaryStyle.search_container}>
+                  <div className={DiaryStyle.search_inputContainer}>
+                    <FiSearch className={DiaryStyle.search_icon} />
+                    <div className={DiaryStyle.search_inputBox}>
+                      <input placeholder="#에코 미션 챌린지" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -216,9 +178,6 @@ const Diary = () => {
 
             <div className={DiaryStyle.border_line}></div>
 
-            {/* <SearchPost /> */}
-
-            {/* <Post></Post> */}
             <div className={DiaryStyle.post_container}>
               {data.length === 0 ? (
                 <h1>내역없음</h1>
@@ -227,14 +186,8 @@ const Diary = () => {
               )}
             </div>
 
-            {/* <Link to="/WritingPage">
-              <div className={DiaryStyle.writing}>
-              <img className={DiaryStyle.pencil} src="img/pencil.png" alt="pencil"></img>
-              </div>
-            </Link> */}
-
             <div className={DiaryStyle.writing} onClick={() => setForm(true)}>
-              <HiOutlinePencil className={DiaryStyle.pencil} />
+              <Pencil className={DiaryStyle.pencil} />
             </div>
 
             <Footer activeMenu="diary">

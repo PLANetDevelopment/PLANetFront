@@ -64,8 +64,8 @@ function Setting() {
         </div>
       </div>
 
-      <Footer activeMenu="home">
-        <div>홈</div>
+      <Footer activeMenu="setting">
+        <div>설정</div>
       </Footer>
     </div>
   );

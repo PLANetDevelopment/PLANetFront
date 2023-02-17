@@ -186,34 +186,47 @@
 /*drop box*/
 .drop_box_dimm {
     color: #90949b;
-    background: rgba(86, 100, 121, 0.2);
+    background: transparent;
 }
 
 .drop_box_selected {
-    color: rgb(var(--navy));
-    background-color: #00c982;
+    color: #fff;
+    background: transparent;
+    /* text-decoration: underline;
+    text-decoration-thickness: 2.5px;
+    text-underline-offset : 16px; */
 }
+
+.drop_box_selected:after {
+    content: "";
+    display: block;
+    width: 28px;
+    border-bottom: 2.5px solid #fff;
+    margin: 0 auto;
+    padding-bottom: 16px;
+  }
 
 .drop_box {
     position: relative;
     left: 6%;
-    margin: 3.3% 0% 3.6% 0%;
+    /* margin: 3.3% 0% 16px 0%; */
     font-family: Pretendard;
+    margin: 3.3% 0% 0% 0%;
 }
   
 .drop_box button {
     font-family: Pretendard;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
+    line-height: 15px;
     /* width: 20%; */
-    border-radius: 40.94px;
-    margin-right: 2.2%;
-    padding: 2% 2.8%;
+    margin-right: 3%;
     position: relative;
     text-align: center;
-    border: 0;
     cursor: pointer;
     z-index: 1;
+    outline: 0;
+    border: 0;
 }
 
 .drop_box_category {

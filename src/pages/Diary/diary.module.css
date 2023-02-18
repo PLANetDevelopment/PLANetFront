@@ -248,6 +248,74 @@
     height: 8px;
 }
 
+/* 배너 */
+.banner_container {
+    position: relative;
+    text-align: right;
+    display: table;
+    border: 0;
+    width: 88%;
+    height: 12%;
+    margin: 0 auto;
+    margin-top: 5%;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #359573, #00E091);
+    border-radius: 10px;
+}
+
+.banner_img_box {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.banner_content {
+    position: absolute;
+    float: left;
+    text-align: left;
+    font-family: Pretendard;
+    color: #161A22;
+
+    top: 12.5%;
+    left: 4.8%;
+
+    /* margin-top: 4%;
+    margin-left: 4.2%; */
+}
+
+.banner_content button {
+    position: relative;
+    border: 0;
+    outline: 0;
+    background-color: #161A22;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: Pretendard;
+
+    margin-top: 4%;
+}
+
+.banner_content p {
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+}
+
+.banner_content h1 {
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+}
+
+.banner_img {
+    /* max-width: 88%;
+    min-height: 12%; */
+}
+
 /*게시글 박스*/
 .post_container {
     width: 90%;

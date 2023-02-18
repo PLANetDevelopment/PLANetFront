@@ -36,6 +36,10 @@ const MAIN_DATA = [
 const Diary = () => {
   const navigate = useNavigate();
 
+  const moveEcoMission = () => {
+    navigate("/ecoMission");
+  };
+
   const clickSearchBar = () => {
     navigate("/searchPost");
   };
@@ -178,9 +182,26 @@ const Diary = () => {
 
             <div className={DiaryStyle.border_line}></div>
 
+            {/* 배너 */}
+            <div className={DiaryStyle.banner_container}>
+              <div className={DiaryStyle.banner_content}>
+                <p>일상 속에서 쌓는 환경 경험치!</p>
+                <h1>에코 미션 챌린지</h1>
+
+                <button onClick={moveEcoMission}>나도 참여하기</button>
+              </div>
+              <div className={DiaryStyle.banner_img_box}>
+                <img
+                  className={DiaryStyle.banner_img}
+                  src="img/banner.png"
+                  alt="banner"
+                />
+              </div>
+            </div>
+
             <div className={DiaryStyle.post_container}>
               {data.length === 0 ? (
-                <h1>내역없음</h1>
+                <h1>아직 등록된 글이 없어요</h1>
               ) : (
                 <WritingList writingList={data} />
               )}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import SearchBar from "../../components/DiaryPart/SearchBar";
 import WritingPage from "./WritingPage";
 import WritingList from "../../components/DiaryPart/WritingList";
 import Footer from "../../components/Footer/Footer";
@@ -35,6 +35,10 @@ const MAIN_DATA = [
 
 const Diary = () => {
   const navigate = useNavigate();
+
+  const moveWritingPage = () => {
+    navigate("/writingPage");
+  };
 
   const moveEcoMission = () => {
     navigate("/ecoMission");
@@ -76,38 +80,38 @@ const Diary = () => {
   };
 
   //에코챌린지
-  const userId = window.localStorage.getItem("userId");
-  // const isFocused = useIsFocused();
-  const [loading, setloading] = useState(true);
+  // const userId = window.localStorage.getItem("userId");
+  // // const isFocused = useIsFocused();
+  // const [loading, setloading] = useState(true);
 
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
 
-  //필요할 때만 가져오기 (배열 안에 comments 넣으면 무한루프..)
-  useEffect(() => {
-    fetchData();
-  }, []);
+  //필요할 때만 가져오기
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    console.log("Trying to get 에코미션 info!!");
+  // const fetchData = async () => {
+  //   console.log("Trying to get 에코미션 info!!");
 
-    const response = await axios.get(
-      `https://플랜잇.웹.한국:8080/api/starTalk/ecoMission`,
-      {
-        headers: { userId: userId },
-      }
-    );
-    const data = await response.data;
+  //   const response = await axios.get(
+  //     `https://플랜잇.웹.한국:8080/api/starTalk/ecoMission`,
+  //     {
+  //       headers: { userId: userId },
+  //     }
+  //   );
+  //   const data = await response.data;
 
-    setComments(data);
+  //   setComments(data);
 
-    if (data && data.length > 0) {
-      console.log(data[0]);
-    }
+  //   if (data && data.length > 0) {
+  //     console.log(data[0]);
+  //   }
 
-    console.log(data);
+  //   console.log(data);
 
-    setloading(false);
-  };
+  //   setloading(false);
+  // };
 
   //카테고리별 게시글 가져오기 api 테스트 => success
   // const userId = window.localStorage.getItem("userId");
@@ -141,21 +145,52 @@ const Diary = () => {
 
   // console.log(categoryPostArr);
 
+  // 전체 게시글 가져오기 api 테스트 => success
+  const userId = window.localStorage.getItem("userId");
+  const [loading, setloading] = useState(true);
+
+  const [postArr, setPostArr] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    console.log("Try to get all of the post info");
+
+    const response = await axios.get(
+      `https://플랜잇.웹.한국:8080/api/starTalk`,
+      {
+        headers: { userId: userId },
+      }
+    );
+    const data = await response.data;
+
+    setPostArr(data);
+
+    if (data && data.length > 0) {
+      console.log(data[0]);
+    }
+
+    setloading(false);
+  };
+
+  console.log(postArr);
+
   return (
     <>
       <div className={DiaryStyle.container}>
         {!form && (
           <>
-            <div>
-              {/* Todo : click 범위 제대로 설정하기 */}
-              <div onClick={clickSearchBar}>
-                <div className={DiaryStyle.search_container}>
-                  <div className={DiaryStyle.search_inputContainer}>
-                    <FiSearch className={DiaryStyle.search_icon} />
-                    <div className={DiaryStyle.search_inputBox}>
-                      <input placeholder="#에코 미션 챌린지" />
-                    </div>
-                  </div>
+            {/* Todo : click 범위 제대로 설정하기 */}
+            <div
+              onClick={clickSearchBar}
+              className={DiaryStyle.search_container}
+            >
+              <div className={DiaryStyle.search_inputContainer}>
+                <FiSearch className={DiaryStyle.search_icon} />
+                <div className={DiaryStyle.search_inputBox}>
+                  <input placeholder="#에코 미션 챌린지" />
                 </div>
               </div>
             </div>
@@ -183,12 +218,22 @@ const Diary = () => {
             <div className={DiaryStyle.border_line}></div>
 
             {/* 배너 */}
-            <div className={DiaryStyle.banner_container}>
+            <div
+              onClick={moveWritingPage}
+              className={DiaryStyle.banner_container}
+            >
               <div className={DiaryStyle.banner_content}>
                 <p>일상 속에서 쌓는 환경 경험치!</p>
                 <h1>에코 미션 챌린지</h1>
 
-                <button onClick={moveEcoMission}>나도 참여하기</button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); //이벤트 방지 함수
+                    moveEcoMission();
+                  }}
+                >
+                  나도 참여하기
+                </button>
               </div>
               <div className={DiaryStyle.banner_img_box}>
                 <img
@@ -199,17 +244,31 @@ const Diary = () => {
               </div>
             </div>
 
-            <div className={DiaryStyle.post_container}>
+            {/* <div className={DiaryStyle.post_container}>
               {data.length === 0 ? (
                 <h1>아직 등록된 글이 없어요</h1>
               ) : (
                 <WritingList writingList={data} />
+              )}
+            </div> */}
+
+            <div className={DiaryStyle.post_container}>
+              {postArr.length === 0 ? (
+                <h1>아직 등록된 글이 없어요</h1>
+              ) : (
+                <WritingList writingList={postArr} />
               )}
             </div>
 
             <div className={DiaryStyle.writing} onClick={() => setForm(true)}>
               <Pencil className={DiaryStyle.pencil} />
             </div>
+
+            <Link to="/WritingPage" onCreate={onCreate}>
+              <div className={DiaryStyle.floating}>
+                <Pencil className={DiaryStyle.plus} />
+              </div>
+            </Link>
 
             <Footer activeMenu="diary">
               <div>별별톡</div>

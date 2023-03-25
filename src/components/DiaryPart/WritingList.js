@@ -1,7 +1,6 @@
 // import React from 'react';
 // import WritingItem from './WritingItem';
 
-
 // const WritingList = ({writingList}) => {
 //     return(
 //       <>
@@ -22,18 +21,17 @@
 
 //Route Test...
 
-import React, { useState } from 'react';
-import WritingItem from './WritingItem';
+import React from "react";
+import WritingItem from "./WritingItem";
 
-const WritingList = ({writingList}) => {
-
-    return(
-      <>
-        {writingList.map((it)=>(
-        	<WritingItem key={it.id} {...it} />
-        ))}
-      </>
-    );
-}
+const WritingList = ({ writingList }) => {
+  return (
+    <>
+      {writingList.postList.map((it) => (
+        <WritingItem key={it.id} {...it} />
+      ))}
+    </>
+  );
+};
 
 export default WritingList;

@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import DiaryStyle from "./diary.module.css";
-import HistorySample from "../../components/History/HistoryBack";
 import Uploader from "../../components/InquiryPart/Uploader";
-import Popup from "../../components/InquiryPart/Popup";
+import Popup from "../../components/PopupPart/SavePopup";
 import CategoryList from "../../components/DiaryPart/CategoryList";
 import { Modal } from "../../components/DiaryPart/DiaryModal";
-import { BsChevronDown } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
-import { Button } from "antd";
+import { AiOutlinePicture } from "react-icons/ai";
+import { TbKeyboardShow } from "react-icons/tb";
 
 const WritingPage = ({ onCreate }) => {
   //카테고리 모달
@@ -64,6 +63,20 @@ const WritingPage = ({ onCreate }) => {
   };
 
   //별별톡 화면으로 돌아가기
+  const returnPage = (e) => {
+    setModalOpen(false);
+
+    setState({
+      title: "",
+      content: "",
+    });
+
+    navigate("/Diary");
+  };
+
+  //별별톡 화면으로 돌아가기
+  //form 값을 다시 false로 바꿔줘야함
+  //floating 버튼 생기면 페이지 위에 덮어쓰지 말고 그냥 페이지 이동으로 바꾸면 해결될 듯
   const goDiary = () => {
     navigate("/Diary");
   };
@@ -132,23 +145,42 @@ const WritingPage = ({ onCreate }) => {
         {/* 게시글 조회 테스트 : <p>{postArr[0]}</p> */}
         {/* <TestList test={postArr[0]} /> */}
 
-        <div onClick={goDiary} className={DiaryStyle.backBtn}>
-          <MdClose className={DiaryStyle.closeBtn} />
-        </div>
+        <div className={DiaryStyle.title_header}>
+          {/* <div onClick={goDiary} className={DiaryStyle.backBtn}>
+            <MdClose className={DiaryStyle.closeBtn} />
+          </div>
 
-        <div className={DiaryStyle.title}>글 쓰기</div>
+          <div className={DiaryStyle.title_icon}>
+            <button
+              className={DiaryStyle.post_btn}
+              onClick={openModal}
+              disabled={state.content.length !== 0 ? false : true}
+            >
+              <AiOutlineCheck />
+            </button>
+            <Popup open={modalOpen} close={closeModal} submit={handleSubmit}>
+              작성 중인 <br /> 글을 저장하시겠어요?
+            </Popup>
+          </div> */}
 
-        <div className={DiaryStyle.title_icon}>
-          <button
-            className={DiaryStyle.post_btn}
-            onClick={openModal}
-            disabled={state.content.length !== 0 ? false : true}
-          >
-            <AiOutlineCheck />
-          </button>
-          <Popup open={modalOpen} close={closeModal} submit={handleSubmit}>
-            문의를 등록하시겠습니까?
+          <div onClick={openModal} className={DiaryStyle.backBtn}>
+            <MdClose className={DiaryStyle.closeBtn} />
+          </div>
+
+          <Popup open={modalOpen} close={returnPage} submit={handleSubmit}>
+            작성 중인 <br /> 글을 저장하시겠어요?
           </Popup>
+
+          <div className={DiaryStyle.title}>글 쓰기</div>
+
+          <div className={DiaryStyle.title_icon}>
+            <button
+              className={DiaryStyle.post_btn}
+              disabled={state.content.length !== 0 ? false : true}
+            >
+              <AiOutlineCheck />
+            </button>
+          </div>
         </div>
 
         <div className={DiaryStyle.inquiry}>
@@ -164,7 +196,11 @@ const WritingPage = ({ onCreate }) => {
           </div>
 
           <div className={DiaryStyle.category}>
-            <p>🌱 데일리 에코미션 참여하기</p>
+            <button onClick={isopenModal} className={DiaryStyle.category_btn}>
+              🌱 데일리 에코미션 참여하기
+            </button>
+
+            <button className={DiaryStyle.info_btn}>?</button>
 
             {isModalOpen && (
               <Modal
@@ -178,15 +214,20 @@ const WritingPage = ({ onCreate }) => {
                 <CategoryList></CategoryList>
               </Modal>
             )}
-            <button onClick={isopenModal} className={DiaryStyle.category_btn}>
-              <BsChevronDown />
-            </button>
+
+            <div className={DiaryStyle.border_line}></div>
+
+            <div className={DiaryStyle.upload}>
+              <TbKeyboardShow className={DiaryStyle.keyboard_icon} />
+              <AiOutlinePicture className={DiaryStyle.pic_icon} />
+              <p>(0/10)</p>
+            </div>
           </div>
 
-          <div className={DiaryStyle.upload_box}>
+          {/* <div className={DiaryStyle.upload_box}>
             <h1>사진</h1>
             <Uploader />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
